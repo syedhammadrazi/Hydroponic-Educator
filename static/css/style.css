@@ -1,0 +1,70 @@
+/* site.css — lightweight styling for index.html & techniques.html only.
+   Does not affect educator.html because those pages link to style.css instead. */
+
+:root{
+  --bg:#0b1220;
+  --panel:#111829;
+  --muted:#a9b4d0;
+  --text:#e8eefc;
+  --accent:#0d3b66;
+  --border:rgba(255,255,255,.08);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font:16px/1.6 system-ui,Segoe UI,Roboto,Arial,sans-serif;
+}
+
+/* header / nav */
+.site-header{border-bottom:1px solid var(--border);background:rgba(255,255,255,.03)}
+.nav{max-width:1100px;margin:0 auto;display:flex;gap:20px;padding:14px 18px}
+.nav a{color:var(--text);opacity:.85;text-decoration:none;padding:6px 8px;border-radius:8px}
+.nav a:hover{opacity:1;background:rgba(255,255,255,.06)}
+.nav a.active{opacity:1;background:rgba(59,130,246,.12);color:#fff}
+
+/* layout */
+.wrap{max-width:1100px;margin:0 auto;padding:28px 18px}
+.hero{display:grid;gap:10px;margin:10px 0 22px}
+.hero.small h1{font-size:28px}
+.hero h1{margin:0;font-size:34px}
+.tagline{color:var(--muted);max-width:80ch;margin:0}
+
+/* cards */
+.cards{display:grid;gap:16px;margin:16px 0}
+.cards.two{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:18px;
+}
+.card h2{margin:0 0 8px 0;font-size:20px}
+.card .note{color:var(--muted);margin-top:8px}
+
+/* lists */
+.list{margin:0;padding-left:18px}
+.list li{margin:6px 0}
+
+/* pills & ctas */
+.pill-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+.pill{
+  display:inline-block;background:rgba(255,255,255,.08);
+  border:1px solid var(--border);border-radius:999px;
+  padding:6px 10px;color:#eaf0ff;font-size:14px
+}
+a.cta{
+  display:inline-block;margin-top:10px;background:var(--accent);
+  color:#fff;text-decoration:none;padding:12px 16px;border-radius:10px;font-weight:600; width: 205px; text-align: center;
+}
+a.cta:hover{filter:brightness(1.06)}
+
+/* footer */
+.site-footer{border-top:1px solid var(--border);color:var(--muted);text-align:center;padding:16px 0;margin-top:18px}
+
+/* responsive tweaks */
+@media (max-width:600px){
+  .hero h1{font-size:28px}
+}

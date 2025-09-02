@@ -1,0 +1,23 @@
+{
+    "Spinach": {
+        "ec_range": [1.8, 2.3],
+        "ph_range": [5.5, 6.6],
+        "temperature": [16, 21],
+        "humidity": [40, 70],
+        "light_needs": [12, 16]
+    },
+    "Mint": {
+        "ec_range": [2.2, 2.6],
+        "ph_range": [6.0, 7.0],
+        "temperature": [10, 21],
+        "humidity": [40, 60],
+        "light_needs": [14, 16]
+    },
+    "Cherry Tomato": {
+        "ec_range": [1.8, 2.5],
+        "ph_range": [5.5, 6.5],
+        "temperature": [15, 24],
+        "humidity": [50, 70],
+        "light_needs": [14, 18]
+    }
+}

@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: hydroponic-simulator
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --worker-class gthread --threads 16 --workers 1 --keep-alive 30 --timeout 120 --access-logfile -
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9

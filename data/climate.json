@@ -1,0 +1,30 @@
+{
+    "Karachi": {
+        "January": { "high_temp": 26, "low_temp": 12, "mean_temp": 19, "humidity": 49, "sunlight": 8.5 },
+        "February": { "high_temp": 29, "low_temp": 15, "mean_temp": 22, "humidity": 49, "sunlight": 9.0 },
+        "March": { "high_temp": 32, "low_temp": 20, "mean_temp": 26, "humidity": 53, "sunlight": 9.0 },
+        "April": { "high_temp": 35, "low_temp": 24, "mean_temp": 30, "humidity": 58, "sunlight": 9.0 },
+        "May": { "high_temp": 36, "low_temp": 27, "mean_temp": 32, "humidity": 66, "sunlight": 9.5 },
+        "June": { "high_temp": 35, "low_temp": 29, "mean_temp": 32, "humidity": 68, "sunlight": 7.5 },
+        "July": { "high_temp": 34, "low_temp": 28, "mean_temp": 31, "humidity": 71, "sunlight": 5.0 },
+        "August": { "high_temp": 32, "low_temp": 27, "mean_temp": 30, "humidity": 73, "sunlight": 5.0 },
+        "September": { "high_temp": 33, "low_temp": 26, "mean_temp": 30, "humidity": 69, "sunlight": 7.5 },
+        "October": { "high_temp": 35, "low_temp": 23, "mean_temp": 29, "humidity": 58, "sunlight": 9.0 },
+        "November": { "high_temp": 32, "low_temp": 18, "mean_temp": 25, "humidity": 49, "sunlight": 9.0 },
+        "December": { "high_temp": 28, "low_temp": 14, "mean_temp": 21, "humidity": 48, "sunlight": 9.0 }
+    },
+    "Lahore": {
+        "January": { "high_temp": 18, "low_temp": 7, "mean_temp": 13, "humidity": 71, "sunlight": 7.0 },
+        "February": { "high_temp": 22, "low_temp": 10, "mean_temp": 16, "humidity": 64, "sunlight": 7.5 },
+        "March": { "high_temp": 28, "low_temp": 15, "mean_temp": 21, "humidity": 57, "sunlight": 8.0 },
+        "April": { "high_temp": 35, "low_temp": 20, "mean_temp": 28, "humidity": 44, "sunlight": 9.0 },
+        "May": { "high_temp": 39, "low_temp": 25, "mean_temp": 32, "humidity": 37, "sunlight": 10.0 },
+        "June": { "high_temp": 39, "low_temp": 27, "mean_temp": 33, "humidity": 49, "sunlight": 9.0 },
+        "July": { "high_temp": 35, "low_temp": 27, "mean_temp": 31, "humidity": 70, "sunlight": 7.5 },
+        "August": { "high_temp": 35, "low_temp": 27, "mean_temp": 31, "humidity": 74, "sunlight": 7.5 },
+        "September": { "high_temp": 34, "low_temp": 25, "mean_temp": 30, "humidity": 70, "sunlight": 9.0 },
+        "October": { "high_temp": 32, "low_temp": 20, "mean_temp": 26, "humidity": 61, "sunlight": 9.5 },
+        "November": { "high_temp": 27, "low_temp": 13, "mean_temp": 20, "humidity": 62, "sunlight": 8.5 },
+        "December": { "high_temp": 21, "low_temp": 8, "mean_temp": 15, "humidity": 68, "sunlight": 7.0 }
+    }
+}

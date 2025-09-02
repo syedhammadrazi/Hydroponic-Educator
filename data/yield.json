@@ -1,0 +1,5 @@
+{
+    "Spinach": { "yield_per_plant": 0.05, "weeks_per_harvest": 6 },
+    "Mint": { "yield_per_plant": 0.15, "weeks_per_harvest": 5 },
+    "Cherry Tomato": { "yield_per_plant": 3.00, "weeks_per_harvest": 10 }
+}

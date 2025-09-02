@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>How the Simulator Works</title>
+    <link rel="stylesheet" href="css/style.css"/>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="techniques.html">Techniques</a>
+        <a href="guide.html" class="active">Guide</a>
+        <a href="educator.html">Simulator</a>
+      </nav>
+    </header>
+
+    <main class="wrap">
+      <!-- Hero -->
+      <section class="hero small">
+        <h1>How the Simulator Works</h1>
+        <p class="tagline">
+          A 2-minute tour of what you control, why it matters, and how to get great results.
+        </p>
+      </section>
+
+      <!-- Quick Start -->
+      <section class="card">
+        <h2>Quick Guide</h2>
+        <ol class="list">
+          <li><strong>Pick your city, month, and crop:</strong> This loads the local climate (temperature, humidity & daylight) for the city in that month, and the crop’s ideal ranges for electrical conductivity, pH, temperature, humidity and light requirements.</li>
+          <li><strong>Press Start:</strong> To launch the simulation.</li>
+          <li><strong>Respond to prompts:</strong> If EC, pH, humidity, temperature, water, or light hours changes (goes out of the ideal ranges for the crop), the user gets a notification in the actions required tab, and one-tap action is required by the user.</li>
+          <li><strong>Live Dashboard:</strong> The dashboard tab shows the all the necessary infomartion to the user such as; day, hour, stage, water level, EC level, & pH level etc.</li>
+          <li><strong>Educational Feedback:</strong> If the user doesn't respond to a warning, it will deduct the crop's health, which will impact the overall yield. The users get an acknowledgment in the feedback tab if they respond to the warning, and a suggestive feedback if they miss a warning to educate them that each warning missed impacts the health of the crop.</li>
+        </ol>
+      </section>
+
+      <!-- What you learn -->
+      <section class="cards two">
+        <article class="card">
+          <h2>Learning Outcomes</h2>
+          <ul class="list">
+            <li><strong>Water level</strong> — keep the reservoir topped so roots never dry.</li>
+            <li><strong>EC (nutrient strength)</strong> — normalize to keep feeding steady.</li>
+            <li><strong>pH</strong> — drift happens; bring it back inside the safe band.</li>
+            <li><strong>Temperature</strong> — cool/heat by moving to shade/inside or sunlight.</li>
+            <li><strong>Humidity</strong> — mist to raise; dehumidify to lower.</li>
+            <li><strong>Light hours</strong> — meet the crop’s daily requirement using sun + grow light.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Control Panel</h2>
+          <ul class="list">
+            <li><strong>Left Controls:</strong> There are four controls on the left side (Light, EC normalisation, pH normalisation, Cooling), each of them can be tapped once to respond to the warnings.</li>
+            <li><strong>Right Controls:</strong> There are four controls on the right side (Refill Water, Dehumidify, Spray Water, Heating), each of them can be tapped once to respond to the warnings.</li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- Prompts & yield -->
+      <section class="card">
+        <h2>Prompts, Health & Yield</h2>
+        <ul class="list">
+          <li><strong>Prompts</strong> appear only when an action is needed (e.g., “Normalize pH”).</li>
+          <li><strong>Missed prompts</strong> applies a small health penalty (teaches urgency).</li>
+          <li><strong>Finish:</strong> when the crop reaches its final stage, the user gets a yield estimate based on the final health.</li>
+        </ul>
+      </section>
+
+      <!-- Scenarios -->
+      <section class="cards three">
+        <article class="card">
+        <h2>Scenario — Cherry Tomato in Karachi in the month of July</h2>
+        <p>
+            Karachi’s July is warm and humid. This Scenario shows how the simulator helps the user in understanding how to manage crops in a hydroponics system: managing the heat/humidity.
+        </p>
+
+        <h3>What to expect</h3>
+        <ul class="list">
+            <li><strong>Dehumidify sometimes:</strong> muggy days can push humidity above comfort; use “Dehumidify.”</li>
+            <li><strong>Cool the crop:</strong> if temperature exceeds comfort; use "Cooling".</li>
+        </ul>
+        </article>
+      </section>
+
+      <!-- FAQ / Limits -->
+      <section class="card">
+        <h2>Limitations & Design Choices</h2>
+        <ul class="list">
+            <li><strong>Not the most realistic simulator:</strong> It’s intentionally simple so it’s accessible to everyone in urban Pakistan—educated or not, English- or Urdu-speaking.</li>
+            <li><strong>Learning-first:</strong> The goal is to teach core habits—refill water, normalize EC/pH, manage light & temperature and their impacts on the crop's health without overwhelming the user.</li>
+            <li><strong>No real hardware:</strong> This is a learning simulator only; it has no physical components. In the future it can be adapted to work with real sensors/actuators (e.g., ESP32) with software changes.</li>
+            <li><strong>No exact physics:</strong> It uses simple equations to approximate behavior: EC gradually decreases, pH drifts, water level drops, and temperature/humidity fluctuate. It doesn’t mimic real life exactly—just gives a realistic “flavor.”</li>
+            <li><strong>Future-ready:</strong> Later we can add richer crop models, dosing algorithms, real weather APIs, and device integrations to make it more advanced and realistic.</li>
+
+        </ul>
+        <p>
+            <a class="cta" href="educator.html">Start the simulator here</a>
+            <p>
+                <li>After exploring the simulator, please complete this <strong>2-minute survey</strong> for our research.
+                It is <strong>anonymous</strong> and requires your consent.</li>
+            </p>
+            <a class="cta" href="https://forms.gle/CHzJeKVXTNxRcvjh7" target="_blank" rel="noopener">Access the survey here</a>
+        </p>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2025 Hydroponics for Urban Pakistan</p>
+    </footer>
+    <script src="i18n.js"></script>
+
+  </body>
+</html>

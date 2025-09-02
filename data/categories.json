@@ -1,0 +1,17 @@
+{
+    "Spinach": {
+        "category": "Leafy Green",
+        "use": "Cooked dishes",
+        "seasonality": "All Year"
+    },
+    "Mint": {
+        "category": "Leafy Herb",
+        "use": "Chutney",
+        "seasonality": "All Year"
+    },
+    "Cherry Tomato": {
+        "category": "Fruiting Vegetable",
+        "use": "Curry",
+        "seasonality": "Summer"
+    }
+}

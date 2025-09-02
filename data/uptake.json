@@ -1,0 +1,19 @@
+{
+    "Mint": {
+        "Seedling": { "days": [0, 1], "water_uptake": 1, "ec_reduction": 0.02, "ph_drift": 0.01 },
+        "Vegetative": { "days": [2, 3], "water_uptake": 3, "ec_reduction": 0.06, "ph_drift": 0.02 },
+        "Maturity": { "days": [4, 5], "water_uptake": 2, "ec_reduction": 0.04, "ph_drift": 0.01 }
+    },
+    "Spinach": {
+        "Seedling": { "days": [0, 1], "water_uptake": 5, "ec_reduction": 0.04, "ph_drift": 0.01 },
+        "Vegetative": { "days": [2, 3], "water_uptake": 15, "ec_reduction": 0.01, "ph_drift": 0.03 },
+        "Maturity": { "days": [4, 5], "water_uptake": 12, "ec_reduction": 0.07, "ph_drift": 0.01 }
+    },
+    "Cherry Tomato": {
+        "Seedling": { "days": [0, 1], "water_uptake": 8, "ec_reduction": 0.05, "ph_drift": 0.01 },
+        "Vegetative": { "days": [2, 3], "water_uptake": 25, "ec_reduction": 0.012, "ph_drift": 0.03 },
+        "Flowering": { "days": [4, 5], "water_uptake": 35, "ec_reduction": 0.020, "ph_drift": 0.02 },
+        "Fruiting": { "days": [6, 7], "water_uptake": 50, "ec_reduction": 0.025, "ph_drift": -0.03 },
+        "Maturity": { "days": [8, 9], "water_uptake": 30, "ec_reduction": 0.010, "ph_drift": 0.01 }
+    }
+}
