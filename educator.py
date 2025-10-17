@@ -55,11 +55,9 @@ class HydroGameEngine:
             "humidity_low": 0.5, "humidity_high": 0.5,
             "temp_low": 0.5, "temp_high": 0.5,
         }
-        # Light penalty when daily light is short (end-of-day audit)
-        self.penalty_table.update({"light_short": 0.2})
         # Light hints should never penalize health if ignored
         self.penalty_table.update({
-            "light_on": 0.0,
+            "light_on": 0.2,  # CHANGED from 0.0 → 0.2
         })
 
         self._pending_penalties: Dict[str, float] = {}
@@ -372,15 +370,8 @@ class HydroGameEngine:
             self.hour += 2
             if self.hour >= 24:
                 self.hour = 0
-                # --- End-of-day light audit & penalty if short ---
-                req_light = int(self.crops.get("light_needs", [0])[0])
-                if self.daily_light_hours < req_light:
-                    penalty = float(self.penalty_table.get("light_short", self.default_penalty))
-                    self.health = round(self._clamp(self.health - penalty, 0.0, 100.0), 2)
-                    self.feedback.append(
-                        f"Low light today: {self.daily_light_hours}h / {req_light}h (−{penalty:.2f} health)."
-                    )
                 self.day += 1
+                # no end-of-day light audit/penalty
                 self.daily_light_hours = 0
                 self._last_temp_marks.clear()
                 self._last_humid_marks.clear()
@@ -508,7 +499,7 @@ class HydroGameEngine:
         else:
             self._clear_prompt_cooldown_if_ok("light_on", True)
 
-        # No per-tick health penalties (only on missed prompts, and light_on is 0 penalty)
+        # No per-tick health penalties (only on missed prompts)
         self.health = round(self._clamp(self.health, 0.0, 100.0), 2)
 
     # ---------------------- Reporting & Persistence ----------------------
