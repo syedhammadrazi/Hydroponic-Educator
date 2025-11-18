@@ -78,6 +78,7 @@ project/
 │   │   └── educator.css       # Simulator-specific styles
 │   │
 │   ├── script.js              # Frontend simulation logic
+|   ├── i18n.js                # Language translation to Urdu
 │   ├── images/                # Crop growth stage graphics
 │   └── audio/                 # Sound effects and ambient audio
 │
