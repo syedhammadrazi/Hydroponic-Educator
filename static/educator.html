@@ -1,172 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
-
-    <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <title>Hydroponic Simulator</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/educator.css">
-    </head>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/educator.css" />
+  </head>
 
-    <body>
+  <body>
+    <!-- Back to Guide (survey anchor) -->
+    <a
+      href="guide.html#survey"
+      aria-label="Back to Guide (Survey)"
+      title="Back to Guide (Survey)"
+      style="
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 2501;
+        padding: 8px 12px;
+        border-radius: 8px;
+        background: #0d3b66;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        border: 1px solid #0b1220;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      "
+    >
+      Survey
+    </a>
 
-        <!-- Back to Guide button (fixed) -->
-        <a href="guide.html#survey"
-           aria-label="Back to Guide (Survey)"
-           title="Back to Guide (Survey)"
-           style="position:fixed;top:10px;right:10px;z-index:2501;padding:8px 12px;border-radius:8px;
-                  background:#0d3b66;color:#fff;text-decoration:none;font-weight:600;
-                  border:1px solid #0b1220;box-shadow:0 4px 12px rgba(0,0,0,.25);">
-           Survey
-        </a>
+    <main>
+      <section id="ActionsRequired">
+        <div><strong>Feedback:</strong></div>
+      </section>
 
-        <main>
-
-            <section id="ActionsRequired">
-                <div><strong>Feedback:</strong></div>
-            </section>
-
-            <section id="Controls">
-                <div id="leftControls">
-                    <div class="control-box" data-action="toggle_light">Light</div>
-                    <div class="control-box" data-action="normalize_ec">Normalize EC</div>
-                    <div class="control-box" data-action="normalize_ph">Normalize pH</div>
-                    <div class="control-box" data-action="move_inside">Cooling</div>
-                </div>
-
-                <div id="MiddlePanel">
-                    <div class="action-strip" aria-live="polite">
-                        <span class="action-title">Actions:</span>
-                        <span class="action-text" style="color: rgb(255, 3, 3);">No action required.</span>
-                    </div>
-                    <div class="stage-wrap">
-                        <img id="plantImg" alt="Plant stage preview">
-                    </div>
-
-                    <div class="sim-controls">
-                        <button class="sim-btn" id="btnPause" disabled>Pause</button>
-                        <button class="sim-btn" id="btnRestart" disabled>Restart</button>
-                        <button class="sim-btn" id="btnNext" disabled>Next</button>
-                    </div>
-                </div>
-
-                <div id="rightControls">
-                    <div class="control-box" data-action="refill_water">Refill Water</div>
-                    <div class="control-box" data-action="dehumidify">Dehumidify</div>
-                    <div class="control-box" data-action="spray_water">Spray Water</div>
-                    <div class="control-box" data-action="move_outside">Heating</div>
-                </div>
-            </section>
-
-            <!-- ===== Simple Audio Controls (added earlier) ===== -->
-            <section id="AudioPanel" style="display:flex;align-items:center;gap:10px;justify-content:center;margin:12px 0;">
-                <button id="audioToggle" style="border:1px solid #ddd;background:#fff;padding:6px 10px;border-radius:8px;cursor:pointer;">
-                    🔈 Sound Off
-                </button>
-            </section>
-
-            <section id="DashBoard">
-                <div id="top">
-                    <div class="updates">Day: 100th</div>
-                    <div class="updates">EC: 2.40 mS/cm</div>
-                    <div class="updates">Humidity: 74%</div>
-                    <div class="updates">Temperature: 29.9 °C</div>
-                    <div class="updates">Yield: 1.55 kg</div>
-                </div>
-                <div id="bottom">
-                    <div class="updates">Hour: 24th</div>
-                    <div class="updates">pH: 7.25</div>
-                    <div class="updates">Water: 100%</div>
-                    <div class="updates">Status: Vegetative</div>
-                    <div class="updates">Health: 100%</div>
-                </div>
-            </section>
-
-        </main>
-
-        <!-- ===== Setup Modal (forced on load & after Restart) ===== -->
-        <div id="setupModal" style="display:none;">
-        <div class="modal-backdrop">
-            <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="setupTitle">
-            <h2 id="setupTitle" class="modal-title">Start Simulation</h2>
-
-            <form id="setupForm">
-                <!-- City -->
-                <label>
-                City
-                <select id="citySelect" required>
-                    <option value="" disabled selected>Select…</option>
-                    <option value="Lahore">Lahore</option>
-                    <option value="Karachi">Karachi</option>
-                    <!-- add more cities if you support them -->
-                </select>
-                </label>
-
-                <!-- Month -->
-                <label>
-                Month
-                <select id="monthSelect" required>
-                    <option value="" disabled selected>Select…</option>
-                    <option>January</option><option>February</option><option>March</option>
-                    <option>April</option><option>May</option><option>June</option>
-                    <option>July</option><option>August</option><option>September</option>
-                    <option>October</option><option>November</option><option>December</option>
-                </select>
-                </label>
-
-                <!-- Crop -->
-                <label>
-                Crop
-                <select id="cropSelect" required>
-                    <option value="" disabled selected>Select…</option>
-                    <option value="Cherry Tomato">Cherry Tomato</option>
-                    <option value="Mint">Mint</option>
-                    <option value="Spinach">Spinach</option>
-                    <!-- add more crops you support -->
-                </select>
-                </label>
-
-                <button id="setupConfirmBtn" type="submit" class="sim-btn">Start</button>
-            </form>
-            </div>
-        </div>
+      <section id="Controls">
+        <div id="leftControls">
+          <div class="control-box" data-action="toggle_light">Light</div>
+          <div class="control-box" data-action="normalize_ec">Normalise EC</div>
+          <div class="control-box" data-action="normalize_ph">Normalise pH</div>
+          <div class="control-box" data-action="move_inside">Cooling</div>
         </div>
 
-        <!-- ===== Harvest / Dead Modals (NEW) ===== -->
-        <div id="harvestModal" class="modal" style="display:none;" role="dialog" aria-modal="true">
-          <div class="modal-card">
-            <h3>🎉 Harvest Complete!</h3>
-            <p id="harvestSummary"></p>
-            <div class="modal-actions">
-              <button id="harvestClose">Close</button>
-              <button id="harvestRestart">Restart Simulation</button>
-            </div>
+        <div id="MiddlePanel">
+          <div class="action-strip" aria-live="polite">
+            <span class="action-title">Actions:</span>
+            <span class="action-text" style="color: #ff0303;">No action required.</span>
+          </div>
+
+          <div class="stage-wrap">
+            <img id="plantImg" alt="Plant stage preview" />
+          </div>
+
+          <div class="sim-controls">
+            <button class="sim-btn" id="btnPause" disabled>Pause</button>
+            <button class="sim-btn" id="btnRestart" disabled>Restart</button>
+            <button class="sim-btn" id="btnNext" disabled>Next</button>
           </div>
         </div>
 
-        <div id="deadModal" class="modal" style="display:none;" role="dialog" aria-modal="true">
-          <div class="modal-card">
-            <h3>🪦 Plant Died</h3>
-            <p>Your plant has died. Try again by restarting the simulation.</p>
-            <div class="modal-actions">
-              <button id="deadClose">Close</button>
-              <button id="deadRestart">Restart Simulation</button>
-            </div>
-          </div>
+        <div id="rightControls">
+          <div class="control-box" data-action="refill_water">Refill Water</div>
+          <div class="control-box" data-action="dehumidify">Dehumidify</div>
+          <div class="control-box" data-action="spray_water">Spray Water</div>
+          <div class="control-box" data-action="move_outside">Heating</div>
         </div>
+      </section>
 
-        <!-- ===== Hidden audio tags (existing) ===== -->
-        <audio id="ambientAudio" preload="auto" loop>
-          <source src="audio/ambientLoop.mp3" type="audio/mpeg">
-          <source src="audio/ambientLoop.ogg" type="audio/ogg">
-        </audio>
-        <audio id="stageAudio" preload="auto">
-          <source src="audio/stageChange.mp3" type="audio/wav">
-        </audio>
+      <!-- Simple audio controls -->
+      <section
+        id="AudioPanel"
+        style="
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          justify-content: center;
+          margin: 12px 0;
+        "
+      >
+        <button
+          id="audioToggle"
+          style="
+            border: 1px solid #ddd;
+            background: #fff;
+            padding: 6px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+          "
+        >
+          🔈 Sound Off
+        </button>
+      </section>
 
-        <script src="./script.js" defer></script>
+      <section id="DashBoard">
+        <div id="top">
+          <div class="updates">Day: 100th</div>
+          <div class="updates">EC: 2.40 mS/cm</div>
+          <div class="updates">Humidity: 74%</div>
+          <div class="updates">Temperature: 29.9 °C</div>
+          <div class="updates">Yield: 1.55 kg</div>
+        </div>
+        <div id="bottom">
+          <div class="updates">Hour: 24th</div>
+          <div class="updates">pH: 7.25</div>
+          <div class="updates">Water: 100%</div>
+          <div class="updates">Status: Vegetative</div>
+          <div class="updates">Health: 100%</div>
+        </div>
+      </section>
+    </main>
 
-    </body>
+    <!-- Setup modal (shown on load and after restart) -->
+    <div id="setupModal" style="display: none;">
+      <div class="modal-backdrop">
+        <div
+          class="modal-content"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="setupTitle"
+        >
+          <h2 id="setupTitle" class="modal-title">Start Simulation</h2>
 
+          <form id="setupForm">
+            <!-- City -->
+            <label>
+              City
+              <select id="citySelect" required>
+                <option value="" disabled selected>Select…</option>
+                <option value="Lahore">Lahore</option>
+                <option value="Karachi">Karachi</option>
+              </select>
+            </label>
+
+            <!-- Month -->
+            <label>
+              Month
+              <select id="monthSelect" required>
+                <option value="" disabled selected>Select…</option>
+                <option>January</option>
+                <option>February</option>
+                <option>March</option>
+                <option>April</option>
+                <option>May</option>
+                <option>June</option>
+                <option>July</option>
+                <option>August</option>
+                <option>September</option>
+                <option>October</option>
+                <option>November</option>
+                <option>December</option>
+              </select>
+            </label>
+
+            <!-- Crop -->
+            <label>
+              Crop
+              <select id="cropSelect" required>
+                <option value="" disabled selected>Select…</option>
+                <option value="Cherry Tomato">Cherry Tomato</option>
+                <option value="Mint">Mint</option>
+                <option value="Spinach">Spinach</option>
+              </select>
+            </label>
+
+            <button id="setupConfirmBtn" type="submit" class="sim-btn">
+              Start
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Harvest / dead state modals -->
+    <div
+      id="harvestModal"
+      class="modal"
+      style="display: none;"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="modal-card">
+        <h3>Harvest Complete</h3>
+        <p id="harvestSummary"></p>
+        <div class="modal-actions">
+          <button id="harvestClose">Close</button>
+          <button id="harvestRestart">Restart Simulation</button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="deadModal"
+      class="modal"
+      style="display: none;"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="modal-card">
+        <h3>Plant Died</h3>
+        <p>Your plant has died. Try again by restarting the simulation.</p>
+        <div class="modal-actions">
+          <button id="deadClose">Close</button>
+          <button id="deadRestart">Restart Simulation</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audio -->
+    <audio id="ambientAudio" preload="auto" loop>
+      <source src="audio/ambientLoop.mp3" type="audio/mpeg" />
+      <source src="audio/ambientLoop.ogg" type="audio/ogg" />
+    </audio>
+
+    <audio id="stageAudio" preload="auto">
+      <source src="audio/stageChange.mp3" type="audio/wav" />
+    </audio>
+
+    <script src="./script.js" defer></script>
+  </body>
 </html>
