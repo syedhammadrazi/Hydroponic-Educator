@@ -4,13 +4,9 @@
 
 An interactive web application designed to teach the fundamentals of hydroponic farming to urban households in Pakistan. This simulator lets you experiment with crop growth, environmental controls, and nutrient management in a safe, virtual environment before investing in real hardware.
 
----
-
 ## Why This Exists
 
 Starting with hydroponics can feel overwhelming. You need to understand EC levels, pH balance, lighting schedules, and temperature control — all while worrying about killing your first crop. This simulator gives you a risk-free space to learn these concepts, make mistakes, and build confidence before you touch real plants.
-
----
 
 ## ✨ What You Can Do
 
@@ -56,8 +52,6 @@ Keep track of everything that matters:
 
 ### 🏆 **See Your Results**
 When your crop completes its growth cycle, you'll see a final yield estimate based on how well you maintained plant health throughout the simulation.
-
----
 
 ## 🗂️ Project Structure
 
