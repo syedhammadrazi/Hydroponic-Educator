@@ -1,7 +1,14 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* Make the page fill the viewport and remove scrollbars */
-html, body { height: 100%;  background-color: #000000;}
+html,
+body {
+  height: 100%;
+  background-color: #000000;
+}
 
 body {
   display: flex;
@@ -12,197 +19,142 @@ body {
 
 /* Header */
 nav {
-  display:flex;
-  background: black;
+  display: flex;
+  background: #000000;
   justify-content: space-between;
-  padding:10px;
+  padding: 10px;
 }
 
-a { 
-  text-decoration:none;
-  color: #fff; 
+a {
+  text-decoration: none;
+  color: #ffffff;
 }
 
-/* Main area fills below the header */
+/* Main area */
 main {
-  display:flex;
-  flex-direction:column;
-  flex:1;                        /* use all remaining height */
-  min-height:0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
 }
 
 /* Top strip */
 #ActionsRequired {
-  background:#0b1220;;
-  color:#fff;
-  padding:10px;
-  flex:0 0 auto;                 /* natural height */
+  background: #0b1220;
+  color: #ffffff;
+  padding: 10px;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
-/* ===== MIDDLE BAND (fills leftover height) ===== */
+/* Feedback chips */
+#feedbackList {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.feedback-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: #0b3b28;
+  color: #d1fae5;
+}
+
+/* Middle band */
 #Controls {
-  flex:1;                        /* take all remaining height */
-  display:flex;
-  justify-content:center;        /* prevents side slivers on tiny phones */
-  min-height:0;                  /* allow children to shrink */
-  align-items:stretch;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  min-height: 0;
+  align-items: stretch;
 }
 
-/* Side columns: fixed width; stack boxes; fill height */
-#leftControls, #rightControls {
-  display:flex;
-  flex-direction:column;
+/* Side columns */
+#leftControls,
+#rightControls {
+  display: flex;
+  flex-direction: column;
   width: 110px;
-  flex: 0 0 110px;               /* lock exact width so they don't grow */
-  min-width: 88px;               /* can shrink on small phones via media rules */
+  flex: 0 0 110px;
+  min-width: 88px;
 }
 
-/* Control boxes: divide the side column height evenly */
+/* Control boxes */
 .control-box {
-  flex:1;                        /* auto height to fit column */
-  width:100%;
-  background:black;
-  border:1px solid #0b1220;
+  flex: 1;
+  width: 100%;
+  background: #000000;
+  border: 1px solid #0b1220;
   color: aliceblue;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  font-size:14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 14px;
   transition: background-color 3s ease-in-out;
   -webkit-tap-highlight-color: transparent;
 }
 
 .control-box.clicked {
-  background-color: #0b3b28;  /* new shade when clicked */
+  background-color: #0b3b28;
 }
 
-/* Middle game panel stretches horizontally & vertically */
+/* Middle panel */
 #MiddlePanel {
-  background:#000000;
-  flex: 1 1 auto;                /* allow grow and shrink */
-  min-width: 0;                  /* critical so center can take remaining width */
-  flex-direction: column;
+  background: #000000;
+  flex: 1 1 auto;
+  min-width: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   border: 1px solid #0b1220;
+  align-items: stretch !important;
 }
 
-/* Top Actions strip in the middle column */
+/* Actions strip inside middle panel */
 .action-strip {
   flex: 0 0 auto;
   background: #0b1220;
-  color: #fff;
+  color: #ffffff;
   padding: 6px 10px;
-  border-left: 2px solid #0b1220;   /* keeps edges crisp on black bg */
+  border-left: 2px solid #0b1220;
   border-right: 2px solid #0b1220;
 }
-.action-title { font-weight: 600; margin-right: 6px; }
-.action-text  { opacity: 0.95; }
 
-/* Space between Actions strip and buttons (image slot) */
+.action-title {
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+.action-text {
+  opacity: 0.95;
+}
+
+/* Stage area (image slot) */
 .stage-wrap {
   flex: 1 1 auto;
   min-height: 0;
   display: flex;
-  align-items: stretch;          /* let child stretch vertically */
+  align-items: stretch;
   justify-content: center;
   overflow: hidden;
 }
 
-/* Image fills the slot and keeps aspect ratio */
 .stage-wrap img {
   width: 100%;
   height: 100%;
-  object-fit: contain;             /* minimal crop to avoid black bands */
+  object-fit: contain;
   display: block;
 }
 
-/* ==== BUTTON ROW: equal, non-wrapping, no overflow ==== */
-.sim-controls {
-  flex: 0 0 auto;
-  padding: 6px 8px;
-  display: flex;
-  gap: 8px;
-  justify-content: space-between;    /* distribute evenly */
-  width: 100%;
-}
-
-.sim-btn {
-  flex: 1 1 0;                       /* ✅ equal-width buttons */
-  min-width: 0;                      /* ✅ allow shrink instead of overflow */
-  padding: 8px 12px;
-  border: 2px solid #0b1220;
-  background: #0d3b66;
-  color: #fff;
-  border-radius: 6px;
-  font-size: 14px;
-  text-align: center;
-  white-space: nowrap;               /* keep label on one line */
-}
-
-/* ===== BOTTOM DASHBOARD (natural height) ===== */
-#DashBoard { flex:0 0 auto; background:#EEF1D5; }
-
-#top, #bottom {
-  display:flex;
-  justify-content:space-between;
-  background: #0b1220;
-  color: aliceblue;
-  padding: 8px;
-}
-
-.updates {
-  flex:1 1 0;                    /* equal columns, can shrink */
-  min-width:0;                   /* prevent horizontal overflow */
-  height: 44px;                  /* steady, compact height */
-  display:flex;
-  justify-content:space-evenly;
-  align-items:center;
-  margin:1px;
-  text-align: center;
-  font-size:13px;
-  border: 1px solid black;
-}
-
-/* ---------- Narrow-device refinements ---------- */
-
-/* 1) Slightly tighter layout for phones <= 430px */
-@media (max-width: 430px) {
-  #leftControls, #rightControls { width: 100px; flex: 0 0 100px; }
-  .sim-controls { padding: 4px 6px; gap: 6px; }
-  .sim-btn { padding: 6px 10px; font-size: 13px; }
-}
-
-/* 2) Phones <= 400px (existing wrap + narrower side columns) */
-@media (max-width: 400px) {
-  #leftControls, #rightControls { width: 88px; gap:6px; flex: 0 0 88px; }
-  .control-box { font-size:12px; }
-  .updates { height:40px; font-size:12px; }
-  nav {
-    flex-wrap: wrap;          /* allow a 2nd row if needed */
-    gap: 8px;
-    justify-content: center;  /* keep it tidy when wrapped */
-    padding: 8px;
-  }
-  nav a { font-size: 14px; }
-}
-
-/* 3) Smallest phones <= 390px */
-@media (max-width: 390px) {
-  #leftControls, #rightControls { width: 84px; flex: 0 0 84px; } /* give middle more room */
-  .sim-controls { padding: 4px 6px; gap: 6px; justify-content: space-between; }
-  .sim-btn { padding: 6px 8px; font-size: 12px; } /* labels still readable */
-  #top, #bottom { padding: 6px; }
-  .updates { height: 40px; font-size: 12px; }
-}
-
-/* Stretch inner rows to full middle width on tiny phones */
-#MiddlePanel { 
-  align-items: stretch !important;
-  min-width: 0;
-}
+/* Ensure full width for inner rows on small devices */
 #MiddlePanel > .action-strip,
 #MiddlePanel > .stage-wrap,
 #MiddlePanel > .sim-controls {
@@ -212,81 +164,248 @@ main {
   min-width: 0;
 }
 
-/* ===== Setup Modal (forced) ===== */
-#setupModal { position: fixed; inset: 0; z-index: 1000; display: none; }
-#setupModal.open { display: block; } /* optional: if you ever swap from inline display */
-#setupModal .modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
+/* Simulation buttons row */
+.sim-controls {
+  flex: 0 0 auto;
+  padding: 6px 8px;
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.sim-btn {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 8px 12px;
+  border: 2px solid #0b1220;
+  background: #0d3b66;
+  color: #ffffff;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Bottom dashboard */
+#DashBoard {
+  flex: 0 0 auto;
+  background: #eef1d5;
+}
+
+#top,
+#bottom {
+  display: flex;
+  justify-content: space-between;
+  background: #0b1220;
+  color: aliceblue;
+  padding: 8px;
+}
+
+.updates {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 44px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 1px;
+  text-align: center;
+  font-size: 13px;
+  border: 1px solid #000000;
+}
+
+/* Setup modal */
+#setupModal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+}
+
+#setupModal.open {
+  display: block;
+}
+
+#setupModal .modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
 #setupModal .modal-content {
-  position: relative; z-index: 1;
+  position: relative;
+  z-index: 1;
   width: min(520px, 92vw);
   margin: 10vh auto;
-  background: #000; color: #fff;
-  border: 1px solid #0b1220; border-radius: 10px;
-  padding: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
-#setupModal .modal-title { margin: 0 0 10px; font-size: 18px; }
-
-#setupForm { display: grid; gap: 10px; }
-#setupForm label { display: grid; gap: 6px; font-size: 14px; color: #fff; }
-#setupForm select {
-  padding: 8px; border-radius: 6px;
+  background: #000000;
+  color: #ffffff;
   border: 1px solid #0b1220;
-  background: #0d3b66; color: #fff;
-}
-#setupForm select:focus { outline: 2px solid #0b1220; outline-offset: 1px; }
-
-/* Use your existing .sim-btn look for the Start button */
-#setupConfirmBtn.sim-btn { cursor: pointer; }
-
-/* Smaller phones */
-@media (max-width: 400px) {
-  #setupModal .modal-content { margin: 6vh auto; padding: 12px; }
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* Put label + feedback list on one line */
-#ActionsRequired { 
-  display: flex; 
-  align-items: center; 
-  gap: 10px; 
-  flex-wrap: wrap;     /* wraps on tiny phones */
+#setupModal .modal-title {
+  margin: 0 0 10px;
+  font-size: 18px;
 }
 
-/* Make the feedback items sit inline next to the label */
-#feedbackList { 
-  display: flex; 
-  align-items: center; 
-  gap: 8px; 
+#setupForm {
+  display: grid;
+  gap: 10px;
 }
 
-/* Style each feedback item as a small inline chip (tweak as you like) */
-.feedback-item { 
-  display: inline-flex; 
-  align-items: center;
-  padding: 4px 8px; 
-  border-radius: 8px; 
-  background: #0b3b28; 
-  color: #d1fae5;
+#setupForm label {
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+  color: #ffffff;
 }
 
-/* ====== NEW: Generic Modals (Harvest / Dead) ====== */
+#setupForm select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #0b1220;
+  background: #0d3b66;
+  color: #ffffff;
+}
+
+#setupForm select:focus {
+  outline: 2px solid #0b1220;
+  outline-offset: 1px;
+}
+
+#setupConfirmBtn.sim-btn {
+  cursor: pointer;
+}
+
+/* Generic modals (harvest / dead) */
 .modal {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.45);
-  display: flex; align-items: center; justify-content: center;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 2000;
 }
+
 .modal-card {
   width: min(520px, 94vw);
-  background: #ffffff; color: #222;
+  background: #ffffff;
+  color: #222222;
   border-radius: 14px;
   padding: 18px 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
-.modal-card h3 { margin: 0 0 8px; font-size: 1.2rem; }
-.modal-card p { margin: 4px 0 16px; line-height: 1.5; }
-.modal-actions { display: flex; gap: 8px; justify-content: flex-end; }
+
+.modal-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+}
+
+.modal-card p {
+  margin: 4px 0 16px;
+  line-height: 1.5;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
 .modal-actions button {
-  padding: 8px 12px; border-radius: 8px; border: 1px solid #ddd; background: #f5f5f5; cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #dddddd;
+  background: #f5f5f5;
+  cursor: pointer;
 }
-.modal-actions button:hover { background: #eee; }
+
+.modal-actions button:hover {
+  background: #eeeeee;
+}
+
+/* Narrow-device refinements */
+@media (max-width: 430px) {
+  #leftControls,
+  #rightControls {
+    width: 100px;
+    flex: 0 0 100px;
+  }
+
+  .sim-controls {
+    padding: 4px 6px;
+    gap: 6px;
+  }
+
+  .sim-btn {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 400px) {
+  #leftControls,
+  #rightControls {
+    width: 88px;
+    gap: 6px;
+    flex: 0 0 88px;
+  }
+
+  .control-box {
+    font-size: 12px;
+  }
+
+  .updates {
+    height: 40px;
+    font-size: 12px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    padding: 8px;
+  }
+
+  nav a {
+    font-size: 14px;
+  }
+
+  #setupModal .modal-content {
+    margin: 6vh auto;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 390px) {
+  #leftControls,
+  #rightControls {
+    width: 84px;
+    flex: 0 0 84px;
+  }
+
+  .sim-controls {
+    padding: 4px 6px;
+    gap: 6px;
+    justify-content: space-between;
+  }
+
+  .sim-btn {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  #top,
+  #bottom {
+    padding: 6px;
+  }
+
+  .updates {
+    height: 40px;
+    font-size: 12px;
+  }
+}
